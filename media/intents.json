@@ -1,0 +1,87 @@
+{
+
+    "intents":[
+
+        {
+            "tag":"greeting",
+            "patterns":["hello","hi","hey","wakeup","jarvis"
+            ],
+            "responses":["hello sir","always for you sir","hello","how are you sir"
+
+            ]
+
+        },
+        {
+            "tag":"bye",
+            "patterns":["bye bye","see you later ","goodbye","sleep","exit"
+            ],
+            "responses":["bye","see you later ","sleeping","it will be nice to meet you again","good bye sir"
+            ]
+
+        },
+        {
+            "tag":"health",
+            "patterns":["how are you","are you fine","are you good","are you aleright","how's you"
+            ],
+            "responses":["fine sir","perfect sir ","cool sir","i am fine sir ","good sir"
+            ]
+
+        },
+        {
+            "tag":"Identity",
+            "patterns":["your name","what is your name ","who are you","what is you"
+            ],
+            "responses":["Jarvis ","my name is Jarvis sir","I am jarvis an Personal AI assistant","i Am Jarvis an AI Assistant "
+            ]
+
+        },
+        {
+            "tag":"time",
+            "patterns":["What is time","Tell me time ","what is time jarvis","what's the time","tel me Time"
+            ],
+            "responses":["time"
+            ]
+        },
+        {
+            "tag":"date",
+            "patterns":["what is Date","aaj tarikh kya hai ","Tareekh","tell the date"
+            ],
+            "responses":["date"
+            ]
+
+        },
+        {
+            "tag":"day",
+            "patterns":["what is Day","aaj din kya hai ","din","tell the day"
+            ],
+            "responses":["day"
+            ]
+
+        },
+        {
+            "tag":"wikipedia",
+            "patterns":["who is","about ","what is ","Tell me about","wikipedia","give me information about","Information"
+            ],
+            "responses":["wikipedia"
+            ]
+
+        },
+        {
+            "tag":"google",
+            "patterns":["google","search","google search","search about","search Image "
+            ],
+            "responses":["google"
+            ]
+
+        }
+        
+        
+        
+
+
+
+    ]
+
+
+
+}
