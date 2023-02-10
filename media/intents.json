@@ -73,7 +73,27 @@
             "responses":["google"
             ]
 
-        }
+        },
+        {
+            "tag": "Stuffy Nose",
+        	"patterns": [
+		        "congested nose",
+		    "blocked nose",
+            "nasal congestion",
+            "difficulty breathing through the nose"
+            ],
+        "responses": [
+            "It sounds like you have a stuffy nose. You can try some household remedies like steam inhalation.However it's always best to see a doctor for proper diagnosis and treatment", 
+                "It sounds like you have a stuffy nose. You can try some household remedies like saline nasal spray.However it's always best to see a doctor for proper diagnosis and treatment",
+            "It sounds like you have a stuffy nose. See a doctor for help.",
+            "A stuffy nose can be caused by different things. Let's see a doctor together.",
+            "It seems you have a stuffy nose. Let's visit a doctor for proper care.",
+            "A stuffy nose can be a bother. Let's see a doctor for treatment.",
+            "You have a stuffy nose. Let's go to the doctor for a check-up."
+            ]
+        },
+        
+        
         
         
         
