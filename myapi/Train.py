@@ -2,8 +2,8 @@ import numpy as np
 import json
 import torch
 import nltk
-# nltk.download('punkt')
-# from nltk import PunktSentenceTokenizer    # Hardly added
+nltk.download('punkt')
+from nltk import PunktSentenceTokenizer   
 import torch.nn as nn
 from torch.utils.data import Dataset,DataLoader
 from NeuralNetwork import bag_of_words, tokenize, stem
