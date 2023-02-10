@@ -1,7 +1,7 @@
 import numpy as np
 import nltk 
-# nltk.download('punkt')      # for downloading punkt module from nltk
-from nltk import PunktSentenceTokenizer     #hardlly added 
+nltk.download('punkt')      # for downloading punkt module from nltk
+from nltk import PunktSentenceTokenizer   
 from nltk.stem.porter import PorterStemmer
 
 Stemmer = PorterStemmer()
