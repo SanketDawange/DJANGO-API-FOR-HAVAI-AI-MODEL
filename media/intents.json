@@ -1,87 +1,166 @@
 {
-
     "intents":[
+      {
+        "tag":"greeting",
+        "patterns":["hello","hi","hey","wakeup","jarvis"
+        ],
+        "responses":["hello sir","always for you sir","hello","how are you sir"
 
-        {
-            "tag":"greeting",
-            "patterns":["hello","hi","hey","wakeup","jarvis"
-            ],
-            "responses":["hello sir","always for you sir","hello","how are you sir"
+        ]
 
+    },
+    {
+        "tag":"bye",
+        "patterns":["bye bye","see you later ","goodbye","sleep","exit"
+        ],
+        "responses":["bye","see you later ","sleeping","it will be nice to meet you again","good bye sir"
+        ]
+
+    },
+    {
+        "tag":"health",
+        "patterns":["how are you","are you fine","are you good","are you aleright","how's you"
+        ],
+        "responses":["fine sir","perfect sir ","cool sir","i am fine sir ","good sir"
+        ]
+
+    },
+    {
+        "tag":"Identity",
+        "patterns":["your name","what is your name ","who are you","what is you"
+        ],
+        "responses":["Jarvis ","my name is Jarvis sir","I am jarvis an Personal AI assistant","i Am Jarvis an AI Assistant "
+        ]
+
+    },
+    {
+        "tag":"time",
+        "patterns":["What is time","Tell me time ","what is time jarvis","what's the time","tel me Time"
+        ],
+        "responses":["time"
+        ]
+    },
+    {
+        "tag":"date",
+        "patterns":["what is Date","aaj tarikh kya hai ","Tareekh","tell the date"
+        ],
+        "responses":["date"
+        ]
+
+    },
+    {
+        "tag":"day",
+        "patterns":["what is Day","aaj din kya hai ","din","tell the day"
+        ],
+        "responses":["day"
+        ]
+
+    },
+    {
+        "tag":"wikipedia",
+        "patterns":["who is","about ","what is ","Tell me about","wikipedia","give me information about","Information"
+        ],
+        "responses":["wikipedia"
+        ]
+
+    },
+    {
+        "tag":"google",
+        "patterns":["google","search","google search","search about","search Image "
+        ],
+        "responses":["google"
+        ]
+
+    },
+    {
+	"tag": "Stuffy Nose",
+	"patterns": [
+		"congested nose",
+		"blocked nose",
+		"nasal congestion",
+		"difficulty breathing through the nose"
+	    ],
+	"responses": [
+		"It sounds like you have a stuffy nose. You can try some household remedies like steam inhalation.However it's always best to see a doctor for proper diagnosis and treatment", 
+		"It sounds like you have a stuffy nose. You can try some household remedies like saline nasal spray.However it's always best to see a doctor for proper diagnosis and treatment",
+		"It sounds like you have a stuffy nose. See a doctor for help.",
+		"A stuffy nose can be caused by different things. Let's see a doctor together.",
+		"It seems you have a stuffy nose. Let's visit a doctor for proper care.",
+		"A stuffy nose can be a bother. Let's see a doctor for treatment.",
+		"You have a stuffy nose. Let's go to the doctor for a check-up."
+	    ]
+    },
+    {
+  "tag": "Depression",
+  "patterns": [
+    "sadness",        
+    "appetite",               
+    "worthless",
+    "suicide",
+    "persistent sadness",
+    "feelings of worthlessness",
+    "thoughts of suicideko"
+        ],
+    "responses": [
+        "It sounds like you may be experiencing depression. I would recommend seeking help from a mental health professional.",
+        "Hi there, the symptoms you're describing are often seen in individuals with depression. It's important to seek support and treatment.",
+        "Depression can cause the symptoms you're mentioning. I suggest seeking help from a mental health professional.",
+        "The symptoms you've mentioned could indicate depression. It's important to seek treatment and support."
+        ]
+    },
+    {
+    "tag": "fever",
+        "patterns": [
+              "high body temperature",
+              "elevated temperature",
+              "feeling hot",
+              "feverish",
+              "fever",
+              "hot to the touch",
+              "fever symptoms"
+         ],
+        "responses": [
+              "Common causes of fever include viral infections, bacterial infections, inflammatory conditions, autoimmune disorders, certain medications, and vaccinations.",
+              "Some common symptoms of a fever include elevated body temperature, chills and shivering, sweating, headache, muscle aches, fatigue, and loss of appetite.",
+              "A fever is usually diagnosed by looking at symptoms, medical history, and a physical check-up. Tests like blood tests or imaging may also be done.",
+              "Treatment for a fever usually involves rest and hydration, as well as over-the-counter pain relievers to reduce symptoms.",
+              "A fever is a sign that the body is fighting an illness. It's a temporary rise in temperature.Fevers are usually a sign that the body is fighting an infection."
             ]
-
-        },
-        {
-            "tag":"bye",
-            "patterns":["bye bye","see you later ","goodbye","sleep","exit"
+          },
+          {
+            "tag": "cough",
+            "patterns": [
+              "coughing",
+              "dry cough",
+              "wet cough",
+              "cough",
+              "persistent cough"
             ],
-            "responses":["bye","see you later ","sleeping","it will be nice to meet you again","good bye sir"
+            "responses": [
+              "A cough is a common symptom that helps to clear your airways of mucus, phlegm, or irritants. Coughs can be either dry or wet.",
+              "Try taking a steamy shower to help relieve your cough ", "You should try drinking some warm liquids like tea or broth","try honey or lemon in hot water.",
+              "A dry cough is usually caused by a viral illness, such as the common cold, and doesn't produce mucus or phlegm. A wet cough produces mucus or phlegm.",
+              "If you have a persistent cough that lasts more than a week, it's a good idea to see a doctor to find out what's causing it and get appropriate treatment.",
+              "Drinking plenty of fluids and avoiding irritants, such as smoke and strong odors, can help to relieve coughing symptoms."
             ]
+            },
+            {
+              "tag": "sore throat",
+              "patterns": [
+                "sore throat",
+                "painful throat",
+                "itchy throat",
+                "scratchy throat"
+              ],
+              "responses": [
+                
+                "You can try drinking plenty of fluids","You can try drinking gargle with salt water and avoid irritants such as smoke and strong odors.",
+                "Soothing teas, such as chamomile or licorice root tea, can also help relieve a sore throat.","you can try drinkinng Honey and lemon in warm water can also be soothing.",
+                "Steaming your face with a bowl of hot water and a towel can also help to relieve sore throat symptoms.",
+                "Always consult your doctor before trying any home remedies, especially if you have any underlying health conditions."
+              ]
+            }
 
-        },
-        {
-            "tag":"health",
-            "patterns":["how are you","are you fine","are you good","are you aleright","how's you"
-            ],
-            "responses":["fine sir","perfect sir ","cool sir","i am fine sir ","good sir"
-            ]
-
-        },
-        {
-            "tag":"Identity",
-            "patterns":["your name","what is your name ","who are you","what is you"
-            ],
-            "responses":["Jarvis ","my name is Jarvis sir","I am jarvis an Personal AI assistant","i Am Jarvis an AI Assistant "
-            ]
-
-        },
-        {
-            "tag":"time",
-            "patterns":["What is time","Tell me time ","what is time jarvis","what's the time","tel me Time"
-            ],
-            "responses":["time"
-            ]
-        },
-        {
-            "tag":"date",
-            "patterns":["what is Date","aaj tarikh kya hai ","Tareekh","tell the date"
-            ],
-            "responses":["date"
-            ]
-
-        },
-        {
-            "tag":"day",
-            "patterns":["what is Day","aaj din kya hai ","din","tell the day"
-            ],
-            "responses":["day"
-            ]
-
-        },
-        {
-            "tag":"wikipedia",
-            "patterns":["who is","about ","what is ","Tell me about","wikipedia","give me information about","Information"
-            ],
-            "responses":["wikipedia"
-            ]
-
-        },
-        {
-            "tag":"google",
-            "patterns":["google","search","google search","search about","search Image "
-            ],
-            "responses":["google"
-            ]
-
-        }
-        
-        
-        
-
-
-
-    ]
-
-
-
+        ]
 }
+
