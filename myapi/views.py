@@ -58,6 +58,5 @@ def getResponse(request, user_message):
     
     # ----------------------------------------------------------------
 
-    return HttpResponse(reply)
-    # model_response = {'response': reply}
-    # return JsonResponse(model_response)
+    model_response = {'response': reply}
+    return JsonResponse(model_response)
