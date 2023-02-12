@@ -4,6 +4,7 @@ from . import Brain
 import random
 import json
 import torch
+import random
 
 # -------------------------------------------------------------------------------------
 device = torch.device('cuda' if torch .cuda.is_available() else 'cpu')
@@ -57,6 +58,14 @@ def getResponse(request, user_message):
 
     
     # ----------------------------------------------------------------
-
+    NOT_UNDERSTOOD_RESPONSES = [
+        "Sorry my bad, I could not understant",
+        "I'm sorry, I couldn't find any data related to that. Can you please try a different query or provide more context?",
+        "I'm sorry, I'm not able to find a dataset associated with your request. Can you try rephrasing or providing more details?",
+        "My apologies, I couldn't retrieve the requested data. Would you like to try again with a different query?",
+        "Sorry, I couldn't understand your request and couldn't find any related data. Can you please try a different query or provide more information?"
+    ]
+    if reply == "":
+        reply = NOT_UNDERSTOOD_RESPONSES[random.randint(0, len(NOT_UNDERSTOOD_RESPONSES)-1)]
     model_response = {'response': reply}
     return JsonResponse(model_response)
