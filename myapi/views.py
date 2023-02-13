@@ -69,3 +69,8 @@ def getResponse(request, user_message):
         reply = NOT_UNDERSTOOD_RESPONSES[random.randint(0, len(NOT_UNDERSTOOD_RESPONSES)-1)]
     model_response = {'response': reply}
     return JsonResponse(model_response)
+
+
+def makeAppointment(request, user_message):
+    model_response = {'response': user_message}
+    return JsonResponse(model_response)
