@@ -293,20 +293,6 @@
      ]
   },
   {
-        "tag":"Stomach ulcers",
-        "patterns":[	
-            "burning sensation",
-            "nausea",
-            "Stomach ulcers"
-
-        ],
-          "responses":[
-          "You may be experiencing symptoms of stomach ulcers.",
-          "It seems like you have a burning pain in the upper abdomen.",
-          "Stomach ulcers can cause abdominal pain, nausea, and loss of appetite."
-     ]
-  }, 
-  {
         "tag":"Osteoporosis",
         "patterns":[
         "bone fractures",
