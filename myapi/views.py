@@ -72,5 +72,7 @@ def getResponse(request, user_message):
 
 
 def makeAppointment(request, user_message):
+    if user_message.count("book") >=1 and user_message.count("appointment") >=1:
+        user_message = "With whome you want to make an appointment 'Dentist' or 'Physician' or 'Orthopedic' or 'Cardiologist' or 'Neurologist' or 'Oncologist' or 'Gynacololgist' "
     model_response = {'response': user_message}
     return JsonResponse(model_response)
