@@ -78,19 +78,19 @@ def makeAppointment(request, user_message):
         user_message = "Which specialist you want to visit?"
 
     if user_message.count("dentist") >= 1:
-        user_message = "Here are some hospitals where Dentist is available, which one to choose? 'DR. THUBE HEALTHCARE SERVICES','SMILE CARE DENTAL CLINIC'"
+        user_message = "Here are some hospitals where Dentist is available, which one to choose? 'doctor thube healthcare services','smile care dental clinic'"
         previously_said_name = None
     
     if user_message.count("thube") >=1 or  user_message.count("healthcare") >=1:
-        user_message = "Okay then, shall I comfirm the booking at DR. THUBE HEALTHCARE SERVICES hospital?"
-        previously_said_name = "DR. THUBE HEALTHCARE SERVICES"
+        user_message = "Okay then, shall I comfirm the booking at doctor thube healthcare services?"
+        previously_said_name = "doctor thube healthcare services"
 
-    if user_message.count("smile care") >=1 or  user_message.count("dental clinic") >=1:
-        user_message = "Okay then, shall I comfirm the booking at SMILE CARE DENTAL CLINIC?"
-        previously_said_name = "SMILE CARE DENTAL CLINIC"
+    if user_message.count("smile") >=1 or  user_message.count("dental") >=1:
+        user_message = "Okay then, shall I comfirm the booking at smile care dental clinic?"
+        previously_said_name = "smile care dental clinic"
     
 
-    if user_message.count("confirm") >= 1:
+    if user_message.count("yes") >= 1 or user_message.count("confirm") >= 1:
         if previously_said_name:
             user_message = "Ok confirmed " + previously_said_name + " booking."
         else:
