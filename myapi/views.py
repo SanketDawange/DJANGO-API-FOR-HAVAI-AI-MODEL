@@ -6,6 +6,7 @@ import json
 import torch
 import random
 
+# ---------------
 # -------------------------------------------------------------------------------------
 device = torch.device('cuda' if torch .cuda.is_available() else 'cpu')
 with open("media/intents.json","r") as json_data:
@@ -81,7 +82,7 @@ def makeAppointment(request, user_message):
         user_message = "Here are some hospitals where Dentist is available, which one to choose? 'doctor thube healthcare services','smile care dental clinic'"
         previously_said_name = None
     
-    if user_message.count("thube") >=1 or  user_message.count("healthcare") >=1:
+    if user_message.count("thube") >=1 or  user_message.count("health care") >=1:
         user_message = "Okay then, shall I comfirm the booking at doctor thube healthcare services?"
         previously_said_name = "doctor thube healthcare services"
 
