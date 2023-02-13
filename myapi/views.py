@@ -72,7 +72,29 @@ def getResponse(request, user_message):
 
 
 def makeAppointment(request, user_message):
-    if user_message.count("book") >=1 and user_message.count("appointment") >=1:
-        user_message = "With whome you want to make an appointment 'Dentist' or 'Physician' or 'Orthopedic' or 'Cardiologist' or 'Neurologist' or 'Oncologist' or 'Gynacololgist' "
+    previously_said_name = None
+    
+    if user_message.count("book") >=1 or user_message.count("appointment") >=1:
+        user_message = "Which specialist you want to visit?"
+
+    if user_message.count("dentist") >= 1:
+        user_message = "Here are some hospitals where Dentist is available, which one to choose? 'DR. THUBE HEALTHCARE SERVICES','SMILE CARE DENTAL CLINIC'"
+        previously_said_name = None
+    
+    if user_message.count("thube") >=1 or  user_message.count("healthcare") >=1:
+        user_message = "Okay then, shall I comfirm the booking at DR. THUBE HEALTHCARE SERVICES hospital?"
+        previously_said_name = "DR. THUBE HEALTHCARE SERVICES"
+
+    if user_message.count("smile care") >=1 or  user_message.count("dental clinic") >=1:
+        user_message = "Okay then, shall I comfirm the booking at SMILE CARE DENTAL CLINIC?"
+        previously_said_name = "SMILE CARE DENTAL CLINIC"
+    
+
+    if user_message.count("confirm") >= 1:
+        if previously_said_name:
+            user_message = "Ok confirmed " + previously_said_name + " booking."
+        else:
+            user_message = "Please specify the hospital name first."
+    
     model_response = {'response': user_message}
     return JsonResponse(model_response)
