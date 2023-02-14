@@ -74,7 +74,19 @@ def getResponse(request, user_message):
 
 def makeAppointment(request, user_message):
     if user_message.count("book") >=1 or user_message.count("appointment") >=1:
-        user_message = "Ok, booking an apppointment for you"
-    
+        user_message = "With whome you want to make an appointment"
+        user_message = "Select near by hospitals to book an appointment like Hinjawadi Hospital, Shree Hospital, Ankur Hospital or specify"
+    if user_message.count("Hinjawadi") >=1:
+        user_message = "Doctor shyam mehta(Dentist) and piyush gupta(Orthopedic) are availabe at Hinjawadi Hospital, with whome you wanna make appointment"
+    if user_message.count("shyam") >=1 or user_message.count("mehta") >=1:
+        user_message = "Your appointment has been sent to shyam mehta"
+    if user_message.count("piyush") >=1 or user_message.count("gupta") >=1:
+        user_message = "Your appointment has been sent to piyush gupta"
+    if user_message.count("Shree"):
+        user_message = "At this moment Shree hospital is not accepting bookings"
+    if user_message.count("Ankur"):
+        user_message = "Your appointment has been sent to Ankur Hospital you will recieve more information about your appointment shortly.."
+    else: user_message = "Sorry your requested facilty isn't available."
+
     model_response = {'response': user_message}
     return JsonResponse(model_response)
