@@ -73,6 +73,7 @@ def getResponse(request, user_message):
 
 
 def makeAppointment(request, user_message):
+    user_message = user_message.lower()
     if user_message.count("book") >=1 or user_message.count("appointment") >=1:
         user_message = "Select near by hospitals to book an appointment like Hinjawadi Hospital, Shree Hospital, Ankur Hospital or specify"
     elif user_message.count("Hinjawadi") >=1:
@@ -81,9 +82,9 @@ def makeAppointment(request, user_message):
         user_message = "Your appointment has been sent to shyam mehta"
     elif user_message.count("piyush") >=1 or user_message.count("gupta") >=1:
         user_message = "Your appointment has been sent to piyush gupta"
-    elif user_message.count("Shree"):
+    elif user_message.count("shree"):
         user_message = "At this moment Shree hospital is not accepting bookings"
-    elif user_message.count("Ankur"):
+    elif user_message.count("ankur"):
         user_message = "Your appointment has been sent to Ankur Hospital you will recieve more information about your appointment shortly.."
     else: user_message = "Sorry your requested facilty isn't available."
 
