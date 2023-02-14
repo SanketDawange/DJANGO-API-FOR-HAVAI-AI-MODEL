@@ -75,18 +75,18 @@ def getResponse(request, user_message):
 def makeAppointment(request, user_message):
     user_message = user_message.lower()
     if user_message.count("book") >=1 or user_message.count("appointment") >=1:
-        user_message = "Select near by hospitals to book an appointment like Hinjawadi Hospital, Shree Hospital, Ankur Hospital or specify"
-    elif user_message.count("Hinjawadi") >=1:
-        user_message = "Doctor shyam mehta(Dentist) and piyush gupta(Orthopedic) are availabe at Hinjawadi Hospital, with whome you wanna make appointment"
-    elif user_message.count("shyam") >=1 or user_message.count("mehta") >=1:
-        user_message = "Your appointment has been sent to shyam mehta"
-    elif user_message.count("piyush") >=1 or user_message.count("gupta") >=1:
-        user_message = "Your appointment has been sent to piyush gupta"
-    elif user_message.count("shree"):
-        user_message = "At this moment Shree hospital is not accepting bookings"
-    elif user_message.count("ankur"):
-        user_message = "Your appointment has been sent to Ankur Hospital you will recieve more information about your appointment shortly.."
-    else: user_message = "Sorry your requested facilty isn't available."
+        user_message = "Select near by hospitals to book an appointment like Shantanu Hospital, rahul Hospital, sanket Hospital or shreyash hospital"
+    elif user_message.count("shantanu") >=1 :
+        user_message = "9259725515"
+    elif user_message.count("rahul") >=1 :
+        user_message = "7083694063"
+    elif user_message.count("sanket") >=1 :
+        user_message = "9021798150"
+    elif user_message.count("shreyash") >=1 or user_message.count("shreyas") >=1 :
+        user_message = "9403512671"
+    else:
+        user_message = "Please choose a hospital first."
+    
 
     model_response = {'response': user_message}
     return JsonResponse(model_response)
