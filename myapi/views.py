@@ -74,19 +74,7 @@ def getResponse(request, user_message):
 
 def makeAppointment(request, user_message):
     if user_message.count("book") >=1 or user_message.count("appointment") >=1:
-        user_message = "Which specialist you want to visit?"
-
-    if user_message.count("dentist") >= 1:
-        user_message = "Here are some hospitals where Dentist is available, which one to choose? 'doctor thube healthcare services','smile care dental clinic'"
-    
-    if user_message.count("thube") >=1 or  user_message.count("health care") >=1:
-        user_message = "Okay then, shall I comfirm the booking at doctor thube healthcare services?"
-
-    if user_message.count("smile") >=1 or  user_message.count("dental") >=1:
-        user_message = "Okay then, shall I comfirm the booking at smile care dental clinic?"    
-
-    if user_message.count("yes") >= 1 or user_message.count("confirm") >= 1:
-            user_message = "Ok confirmed booking"
+        user_message = "Ok, booking an apppointment for you"
     
     model_response = {'response': user_message}
     return JsonResponse(model_response)
