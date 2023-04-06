@@ -77,13 +77,13 @@ def makeAppointment(request, user_message):
     if user_message.count("book") >=1 or user_message.count("appointment") >=1:
         user_message = "Select near by hospitals to book an appointment like Shantanu Hospital, rahul Hospital, sanket Hospital or shreyash hospital"
     elif user_message.count("shantanu") >=1 :
-        user_message = "9259725515"
+        user_message = "00"
     elif user_message.count("rahul") >=1 :
-        user_message = "7083694063"
+        user_message = "01"
     elif user_message.count("sanket") >=1 :
-        user_message = "9021798150"
+        user_message = "02"
     elif user_message.count("shreyash") >=1 or user_message.count("shreyas") >=1 :
-        user_message = "9403512671"
+        user_message = "03"
     else:
         user_message = "Please choose a hospital first."
     
