@@ -104,7 +104,7 @@ def signUp(request, username, password):
             # if new user is registering 
         myuser=User.objects.create_user(username,username+"@techvedh.com",password)
         myuser.save()
-        print("User registered", username, password)
+        print("User registered", username)
         return JsonResponse({"status":"success"})
     return JsonResponse({"status":"error"})
 
@@ -113,6 +113,7 @@ def loginUser(request, username, password):
         user=authenticate(username=username,password=password)
         if user is not None:
             login(request,user)
+            print("User logged in", username)
             JsonResponse({"status":"success"})
         else:
             return JsonResponse({"status":"invalid"})
