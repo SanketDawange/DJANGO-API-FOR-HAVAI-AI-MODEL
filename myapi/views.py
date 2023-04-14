@@ -1,4 +1,7 @@
 from django.http import HttpResponse,JsonResponse
+from django.contrib.auth.models import User
+from django.shortcuts import render
+
 from . import NeuralNetwork
 from . import Brain
 import random
@@ -33,7 +36,7 @@ model.eval()
 
 # Create your views here.
 def home(request):
-    return HttpResponse("API")
+    return render(request,"home.html")
 
 
 def getResponse(request, user_message):
@@ -90,3 +93,17 @@ def makeAppointment(request, user_message):
 
     model_response = {'response': user_message}
     return JsonResponse(model_response)
+
+
+
+def signUp(request, username, password):
+    if username != None and password != None:
+        if User.objects.filter(username = username).exists():
+            return JsonResponse({"status":"username taken"})
+            # if new user is registering 
+        myuser=User.objects.create_user(username,username+"@accounts.sres.com",password)
+        myuser.save()
+        print("User registered", username, password)
+        return JsonResponse({"status":"success"})
+    return JsonResponse({"status":"error"})
+    

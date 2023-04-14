@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('getResponse/<str:user_message>', views.getResponse, name='getResponse'),
     path('makeAppointment/<str:user_message>', views.makeAppointment, name='makeAppointment'),
+    path('signUp/<str:username>/<str:password>', views.signUp, name='signUp'),
 ]
