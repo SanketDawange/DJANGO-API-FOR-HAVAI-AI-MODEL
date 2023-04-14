@@ -1,6 +1,7 @@
 from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render
+from django.contrib.auth import authenticate,login,logout
 
 from . import NeuralNetwork
 from . import Brain
@@ -101,9 +102,19 @@ def signUp(request, username, password):
         if User.objects.filter(username = username).exists():
             return JsonResponse({"status":"username taken"})
             # if new user is registering 
-        myuser=User.objects.create_user(username,username+"@accounts.sres.com",password)
+        myuser=User.objects.create_user(username,username+"@techvedh.com",password)
         myuser.save()
         print("User registered", username, password)
         return JsonResponse({"status":"success"})
     return JsonResponse({"status":"error"})
-    
+
+def loginUser(request, username, password):
+    if username != None and password != None:
+        user=authenticate(username=username,password=password)
+        if user is not None:
+            login(request,user)
+            JsonResponse({"status":"success"})
+        else:
+            return JsonResponse({"status":"invalid"})
+        
+    return JsonResponse({"status":"error"})
