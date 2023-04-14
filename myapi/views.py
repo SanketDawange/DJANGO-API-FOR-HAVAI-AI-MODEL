@@ -114,7 +114,7 @@ def loginUser(request, username, password):
         if user is not None:
             login(request,user)
             print("User logged in", username)
-            JsonResponse({"status":"success"})
+            return JsonResponse({"status":"success"})
         else:
             return JsonResponse({"status":"invalid"})
         
