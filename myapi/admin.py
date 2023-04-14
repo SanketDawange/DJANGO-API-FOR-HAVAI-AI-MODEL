@@ -1,8 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Booking
+from .models import UserDetail, UserFile
 
-@admin.register(Booking)
-class BookingAdmin(admin.ModelAdmin):
-    pass
+# Register your models here.
+
+Models = [UserDetail, UserFile]
+for model in Models:
+    admin.site.register(model)

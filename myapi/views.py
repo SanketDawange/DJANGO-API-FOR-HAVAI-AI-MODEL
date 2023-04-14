@@ -2,6 +2,7 @@ from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
+from .models import UserDetail, UserFile
 
 from . import NeuralNetwork
 from . import Brain
@@ -119,3 +120,35 @@ def loginUser(request, username, password):
             return JsonResponse({"status":"invalid"})
         
     return JsonResponse({"status":"error"})
+
+def getUserDetails(request, username):
+    user = User.objects.filter(username=username)
+    if len(user):
+        user_detail = UserDetail.objects.filter(user = user[0])
+        context = {
+            "user_detail" : user_detail
+        }
+        return render(request,"user_details.html", context)
+    return HttpResponse("User details not found")
+
+def getUserDocs(request, username, key):
+    user_detail = UserDetail.objects.filter(key = key)
+    if len(user_detail):
+        user = User.objects.get(username=username)
+        user_files = UserFile.objects.filter(user = user)
+        context = {
+            "user" : user,
+            "user_files" : user_files
+        }
+        return render(request,"docs.html", context)
+    
+    user = User.objects.filter(username=username)
+    if len(user):
+        user_detail = UserDetail.objects.filter(user = user[0])
+        context = {
+            "user_detail" : user_detail,
+            "error_message":"Invalid secrete key"
+        }
+        return render(request,"user_details.html", context)
+    return HttpResponse("User details not found")
+    

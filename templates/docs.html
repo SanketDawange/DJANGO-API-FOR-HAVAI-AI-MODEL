@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HAV-AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 60px;
+            color: rgb(222, 130, 130);
+            text-align: center;
+            text-shadow: 4px 4px 4px #000;
+            position: relative;
+            animation: glow 1s ease-in-out infinite alternate;
+
+        }
+
+        h1::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            color: #f5360f;
+            text-shadow: none;
+        }
+
+        h1::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #00b3b3;
+            text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6, 0 0 40px #00e6e6, 0 0 50px #00e6e6, 0 0 60px #00e6e6;
+            z-index: -1;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 20px #00b3b3, 0 0 30px #00b3b3, 0 0 40px #00b3b3, 0 0 50px #00b3b3, 0 0 60px #00b3b3, 0 0 70px #00b3b3;
+            }
+
+            100% {
+                text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6, 0 0 40px #00e6e6, 0 0 50px #00e6e6, 0 0 60px #00e6e6;
+            }
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px #444;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .card-header:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .card-header:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 10px;
+            background: #007bff;
+            z-index: 0;
+        }
+
+        .basic-details-card p {
+            font-size: 25px;
+            line-height: 40px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            /* change the font to Montserrat */
+        }
+
+        .basic-details-card strong {
+            font-weight: bold;
+            color: #007bff;
+            font-family: 'Montserrat', sans-serif;
+            /* change the font to Montserrat */
+        }
+
+        .medical-history-card {
+            display: none;
+        }
+
+        .medical-history-card ul {
+            margin-left: 30px;
+            margin-bottom: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .medical-history-card ul li {
+            font-size: 25px;
+            line-height: 40px;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .medical-history-card ul li:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #1e90ff;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 576px) {
+            .medical-history-card ul li:before {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>HAV - AI</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card basic-details-card">
+                    
+                    <div class="card-header">
+                        Files of {{user.username}}
+                    </div>
+                    
+                    {% for file in user_files %}
+                    <div class="card-body">
+                        <p><strong>File name:</strong> {{file.file.name}} </p>
+                        <p><button onclick="window.open('{{ file.file.url }}', 'mywindow', 'width=1200,height=800')" class="btn btn-secondary">View</button></p>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
