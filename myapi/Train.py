@@ -42,7 +42,7 @@ for(pattern_sentence,tag) in xy:
 x_train = np.array(x_train)
 y_train = np.array(y_train)
 
-num_apochs = 1000
+num_apochs = 10000
 batch_size = 8
 learning_rate = 0.001
 input_size = len(x_train[0])
@@ -86,7 +86,7 @@ for epoch in range(num_apochs):
         loss.backward()
         optimizer.step()
 
-    if (epoch+1) % 100 == 0:
+    if (epoch+1) % 10 == 0:
         print(f'epoch [{epoch+1}/{num_apochs}],Loss:{loss.item():.4f}')
 
 print(f'final loss : {loss.item():.4f}')
