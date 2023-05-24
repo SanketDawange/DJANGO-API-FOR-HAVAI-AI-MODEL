@@ -1,6 +1,6 @@
 from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login,logout
 from .models import UserDetail, UserFile
 
@@ -152,3 +152,47 @@ def getUserDocs(request, username, key):
         return render(request,"user_details.html", context)
     return HttpResponse("User details not found")
     
+
+def doctor_signup(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
+
+        if User.objects.filter(username = username).exists():
+            return render(request, "doctor_signup.html",{"error":"Username already taken! "})
+        if pass1 != pass2:
+            return render(request, "doctor_signup.html",{"error":"Password do not match"})
+
+        myuser=User.objects.create_user(username,email,pass1)
+        myuser.save()
+
+        return redirect("doctor_dashboard")
+    
+    return render(request, "doctor_signup.html",)
+
+def doctor_signin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        pass1 = request.POST.get('pass1')
+        user=authenticate(username=username,password=pass1)
+        if user is not None:
+            login(request,user)
+            print("User logged in", username)
+            return redirect("doctor_dashboard")
+        else:
+            return render(request, "doctor_signin.html",{"error":"Incorrect username or password"})
+        
+    return render(request, "doctor_signin.html")
+
+def doctor_dashboard(request):
+    if request.user.is_authenticated == False:
+        return redirect("login")
+    return render(request, "doctor_dashboard.html")
+
+def doctor_logout(request):
+    if request.user.is_authenticated == False:
+        return redirect("login")
+    logout(request)
+    return redirect("doctor_signin")

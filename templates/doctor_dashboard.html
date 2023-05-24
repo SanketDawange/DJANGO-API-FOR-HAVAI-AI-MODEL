@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            background-color: #05ad45;
+            color: #fff;
+        }
+
+        .card-header h2 {
+            margin-bottom: 0;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table thead th {
+            background-color: #04a139;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card fade-in">
+            <div class="card-header">
+                <h2 class="mb-0">Doctor Dashboard <a href="/doctor_logout" class="btn btn-danger">Logout</a></h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Appointment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>2023-05-25</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>2023-05-26</td>
+                </tr>
+                <!-- Add more patient rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

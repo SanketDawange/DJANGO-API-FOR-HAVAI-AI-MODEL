@@ -11,4 +11,12 @@ urlpatterns = [
     path('loginUser/<str:username>/<str:password>', views.loginUser, name='loginUser'),
     path('getUserDetails/<str:username>', views.getUserDetails, name='getUserDetails'),
     path('getUserDocs/<str:username>/<str:key>', views.getUserDocs, name='getUserDocs'),
+
+    # Doctor side's urls
+    path('doctor_signup', views.doctor_signup, name='doctor_signup'),
+    path('doctor_signin', views.doctor_signin, name='doctor_signin'),
+    path('doctor_logout', views.doctor_logout, name='doctor_logout'),
+    path('doctor_dashboard', views.doctor_dashboard, name='doctor_dashboard'),
+
+
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
