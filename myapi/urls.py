@@ -19,4 +19,8 @@ urlpatterns = [
     path('doctor_dashboard', views.doctor_dashboard, name='doctor_dashboard'),
 
 
+    
+    path('getCategories/', views.getCategories, name='getCategories'),
+    path('getSchemes/<str:category>', views.getSchemes, name='getSchemes'),
+    path('getHospitals/<str:scheme>', views.getHospitals, name='getHospitals'),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -50,3 +50,24 @@ def delete_fd_files(sender, instance, **kwargs):
         file_path = fd_file.file.path
         if os.path.exists(file_path):
             os.remove(file_path)
+            
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    
+class Scheme(models.Model):
+    name = models.CharField(max_length=255)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    def __str__(self):
+            return self.name
+
+class Hospital(models.Model):
+    name = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    contact = models.CharField(max_length=255)
+    
+    scheme = models.ForeignKey(Scheme, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
