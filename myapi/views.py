@@ -2,7 +2,7 @@ from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
-from .models import UserDetail, UserFile
+from .models import UserDetail, UserFile, Category, Scheme, Hospital
 
 from . import NeuralNetwork
 from . import Brain
@@ -153,5 +153,23 @@ def getUserDocs(request, username, key):
     return HttpResponse("User details not found")
 
 def getCategories(request):
-    return JsonResponse({"cats":["Heart Diseases","Cancer","Diabetes","Respiratory Disease"]})
+    array_1 = []
+    for obj in Category.objects.all():
+        array_1.append(obj.name)
+    return JsonResponse({"cats":array_1})
     
+def getSchemes(request, category):
+    categ=Category.objects.get(name=category)
+    schemes= Scheme.objects.filter(category=categ)
+    array_1 = []
+    for obj in schemes:
+        array_1.append(obj.name)
+    return JsonResponse({"schemes":array_1})
+
+def getHospitals(request, scheme):
+    sch=Scheme.objects.get(name=scheme)
+    hospi= Hospital.objects.filter(scheme=sch)
+    array_1 = []
+    for obj in hospi:
+        array_1.append(obj.name)
+    return JsonResponse({"hospitals":array_1})
