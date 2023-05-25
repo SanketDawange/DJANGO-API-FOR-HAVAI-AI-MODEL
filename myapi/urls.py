@@ -11,4 +11,6 @@ urlpatterns = [
     path('loginUser/<str:username>/<str:password>', views.loginUser, name='loginUser'),
     path('getUserDetails/<str:username>', views.getUserDetails, name='getUserDetails'),
     path('getUserDocs/<str:username>/<str:key>', views.getUserDocs, name='getUserDocs'),
+    
+    path('getCategories/', views.getCategories, name='getCategories'),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

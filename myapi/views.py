@@ -151,4 +151,7 @@ def getUserDocs(request, username, key):
         }
         return render(request,"user_details.html", context)
     return HttpResponse("User details not found")
+
+def getCategories(request):
+    return JsonResponse({"cats":["Heart Diseases","Cancer","Diabetes","Respiratory Disease"]})
     
